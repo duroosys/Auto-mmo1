@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<title>MMO</title>
+<style>
+body { margin:0; background:#111; color:white; overflow:hidden; }
+canvas { display:block; margin:auto; background:#222; }
+</style>
+</head>
+<body>
+<canvas id="c" width="600" height="600"></canvas>
+<script>
+const c = document.getElementById("c");
+const ctx = c.getContext("2d");
+let p={x:300,y:300};
+let k={};
+
+window.addEventListener("keydown",e=>k[e.key]=true);
+window.addEventListener("keyup",e=>k[e.key]=false);
+
+function u(){
+ if(k["w"])p.y-=3;
+ if(k["s"])p.y+=3;
+ if(k["a"])p.x-=3;
+ if(k["d"])p.x+=3;
+}
+
+function d(){
+ ctx.clearRect(0,0,600,600);
+ ctx.fillStyle="white";
+ ctx.fillRect(p.x,p.y,10,10);
+ ctx.fillText("MMO AUTO APK",10,20);
+}
+
+function loop(){u();d();requestAnimationFrame(loop);}
+loop();
+</script>
+</body>
+</html>

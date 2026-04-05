@@ -1,0 +1,6 @@
+{
+  "appId": "com.mmo.auto",
+  "appName": "MMOAuto",
+  "webDir": ".",
+  "bundledWebRuntime": false
+}
